@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <title>Buy Now</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <span><img src="img/MAS.gif" alt=""></span>
+            </div>
+            <ul id="nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="service.html">Service</a></li>
+                <li><a href="table.html">Book Table</a></li>
+                <li id="Icon"><a onclick="Search()"><i class="fa-solid fa-magnifying-glass"
+                            style="font-size: 25px;"></i></a></li>
+                <li id="Icon"><a onclick="addTocart()"><img src="img/cart.svg" alt="" class="cart-icon"></a></li>
+                <button onclick="Hamburger()" id="hamburger"><img src="img/ham.svg" alt=""></button>
+            </ul>
+            <ul id="nav-ham">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="service.html">Service</a></li>
+                <li><a href="table.html">Book Table</a></li>
+                <li id="Icon"><a onclick="Search()"><i class="fa-solid fa-magnifying-glass"
+                            style="font-size: 25px;"></i></a></li>
+                <li id="Icon"><a onclick="addTocart()"><img src="img/cart.svg" alt="" class="cart-icon"></a></li>
+            </ul>
+            <form action="#" id="form" style="display: none;">
+                <input type="search" id="product" placeholder="Search your meal" required>
+                <button type="button" onclick="searchProduct()">Search</button>
+            </form>
+        </nav>
+        <!-- Cart Box -->
+        <div class="cart-main">
+
+            <div class="cart-box" id="cart-box">
+                <h3>Shopping Cart</h3>
+                <div id="cart-items"></div>
+                <div id="cart-total" style="font-weight: bold; margin-top: 10px;"></div>
+                <button onclick="buyNow()">Buy Now</button>
+            </div>
+        </div>
+    </header>
+    <section class="table" id="container">
+        <div class="parent">
+            <div class="child">
+                <h2>Your Shopping Items</h2>
+                <table id="cart-table">
+                    <thead>
+                        <tr>
+                            <th>Product Image</th>
+                            <th>Product Name</th>
+                            <th>Price (₹)</th>
+                            <th>Quantity</th>
+                            <th>Amount (₹)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cart-items-table">
+                        <!-- Cart items will be dynamically added here -->
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="4">Total Amount</td>
+                            <td id="cart-total-amount">₹0</td>
+                        </tr>
+                    </tfoot>
+                </table>
+
+                <h2>Shipping address</h2>
+                <form action="#" id="form">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="buy-name" required> <br>
+                    <label for="name">Contact Number:</label>
+                    <input type="number" id="buy-contact" required> <br>
+                    <label for="name">Email:</label>
+                    <input type="email" id="buy-email" required> <br>
+                    <label for="name">Address:</label>
+                    <input type="text" id="buy-address" required> <br>
+                    <label for="name">Address 2:</label>
+                    <input type="text" id="buy-address" required> <br>
+                    <hr>
+                    <label for="name">Payment Method:</label>
+                    <div class="payment">
+                        <label for="name">Online Payment (UPI):</label>
+                        <input type="radio" id="buy-payment"> <br>
+                    </div>
+                    <div class="payment">
+                        <label for="name">Cash on Delivery (COD):</label>
+                        <input type="radio" id="buy-payment"> <br>
+                    </div>
+                    <div class="payment">
+                        <label for="name">Debit Card:</label>
+                        <input type="radio" id="buy-payment"> <br>
+                    </div>
+                    <div class="payment">
+                        <label for="name">Credit Card:</label>
+                        <input type="radio" id="buy-payment"> <br>
+                    </div>
+                    <hr>
+                    <div class="info">
+                        <label for="name">Shipping address is same as my billing address</label>
+                        <input type="checkbox" id="buy-select"> <br>
+                    </div>
+                    <div class="info">
+                        <label for="name">Save this address for next time</label>
+                        <input type="checkbox" id="buy-select"> <br>
+                    </div>
+                    <button onclick="Submit()">Place Order</button>
+                </form>
+
+            </div>
+        </div>
+    </section>
+    <!-- footer page start -->
+    <footer>
+        <div class="footer-content">
+            <div class="child">
+                <h2>Quick Links</h2>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="service.html">Service</a></li>
+                </ul>
+            </div>
+            <div class="child">
+                <h2>Product</h2>
+                <ul>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="table.html">Book Table</a></li>
+                    <li><a href="menu.html">Explore</a></li>
+                    <li><a href="menu.html">Fast Food</a></li>
+                </ul>
+            </div>
+            <div class="child">
+                <h2>About us</h2>
+                <ul>
+                    <li><a href="term.html">Terms & Condition</a></li>
+                    <li><a href="https://abubakkar1.netlify.app/">Meet Founder</a></li>
+                    <li><a href="contact.html">Queries</a></li>
+                    <li><a href="about.html">Our Startup</a></li>
+                </ul>
+            </div>
+            <div class="footer-content last">
+                <p> &copy; 2024 all reserved, Developed by <a href="https://abubakkar1.netlify.app/">Abubakkar</a>
+                </p>
+            </div>
+    </footer>
+    <!-- footer page end -->
+    <script>
+
+        // Retrieve cart data from localStorage
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Function to display cart items on the Buy Now page
+        function displayCart() {
+            const cartItemsTable = document.getElementById('cart-items-table');
+            const cartTotalAmount = document.getElementById('cart-total-amount');
+            cartItemsTable.innerHTML = ''; // Clear any existing rows
+
+            let totalAmount = 0;
+
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                totalAmount += itemTotal;
+
+                const row = `
+                    <tr>
+                        <td><img src="${item.imgSrc}" alt="${item.name}"></td>
+                        <td>${item.name}</td>
+                        <td>₹${item.price}</td>
+                        <td>${item.quantity}</td>
+                        <td>₹${itemTotal}</td>
+                    </tr>
+                `;
+
+                cartItemsTable.innerHTML += row;
+            });
+
+            cartTotalAmount.textContent = `₹${totalAmount}`;
+        }
+
+        // On page load, display the cart
+        window.onload = displayCart;
+
+        function Submit() {
+            const form = document.getElementById('form');
+            const name = document.getElementById('buy-name');
+            const contact = document.getElementById('buy-contact');
+            const email = document.getElementById('buy-email');
+            const address = document.getElementById('buy-address');
+            const payment = document.getElementById('buy-payment');
+            const select = document.getElementById('buy-select');
+        }
+        function Hamburger() {
+            const navbar = document.getElementById('nav-ham');
+            const container = document.getElementById('container');
+            if (navbar.style.display === 'flex') {
+                navbar.style.display = 'none';
+
+            } else {
+                navbar.style.display = 'flex';
+                container.addEventListener('click', () => {
+                    navbar.style.display = 'none';
+                });
+            }
+        }
+        function Search() {
+            const form = document.getElementById('form');
+            const container = document.getElementById('container');
+
+            if (form.style.display === 'flex') {
+                form.style.display = 'none';
+            } else {
+                form.style.display = 'flex';
+                container.addEventListener('click', () => {
+                    form.style.display = 'none';
+                });
+            }
+        }
+        function searchProduct() {
+            const productInput = document.getElementById('product').value.toLowerCase();
+            const allProducts = document.querySelectorAll('#allProducts .child');
+            const home = document.getElementById('banner');
+            const about = document.getElementById('about');
+            const category = document.getElementById('category');
+            const item = document.getElementById('list-item');
+            const list_btn = document.getElementById('list-btn');
+
+            // Loop through all products
+            allProducts.forEach(product => {
+                const productName = product.querySelector('.menu-content h2').textContent.toLowerCase();
+
+                // If the product name includes the search input, display it; otherwise, hide it
+                if (productName.includes(productInput)) {
+                    product.style.display = 'flex';
+                    product.style.flexdirection = 'column';  // Show matching product
+                    home.style.display = 'none';
+                    about.style.display = 'none';
+                    category.style.display = 'none';
+                    item.style.display = 'none';
+                    list_btn.style.display = 'none';
+                } else {
+                    product.style.display = 'none';   // Hide non-matching product
+                }
+            });
+            // If no products match the query, you can add a message if needed
+        }
+    </script>
+</body>
+
+</html>

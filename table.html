@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <title>MAS Restaurant</title>
+
+</head>
+
+<body>
+   <header>
+        <nav>
+            <div class="logo">
+                <span><img src="img/MAS.gif" alt=""></span>
+            </div>
+            <ul id="nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="service.html">Service</a></li>
+                <li><a href="table.html">Book Table</a></li>
+                <li id="Icon"><a onclick="Search()"><i class="fa-solid fa-magnifying-glass"
+                            style="font-size: 25px;"></i></a></li>
+                <li id="Icon"><a onclick="addTocart()"><img src="img/cart.svg" alt="" class="cart-icon"></a></li>
+                <button onclick="Hamburger()" id="hamburger"><img src="img/ham.svg" alt=""></button>
+            </ul>
+            <ul id="nav-ham">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="service.html">Service</a></li>
+                <li><a href="table.html">Book Table</a></li>
+                <li id="Icon"><a onclick="Search()"><i class="fa-solid fa-magnifying-glass"
+                            style="font-size: 25px;"></i></a></li>
+                <li id="Icon"><a onclick="addTocart()"><img src="img/cart.svg" alt="" class="cart-icon"></a></li>
+            </ul>
+            <form action="#" id="form" style="display: none;">
+                <input type="search" id="product" placeholder="Search your meal" required>
+                <button type="button" onclick="searchProduct()">Search</button>
+            </form>
+        </nav>
+        <!-- Cart Box -->
+        <div class="cart-main">
+
+            <div class="cart-box" id="cart-box">
+                <h3>Shopping Cart</h3>
+                <div id="cart-items"></div>
+                <div id="cart-total" style="font-weight: bold; margin-top: 10px;"></div>
+                <button onclick="buyNow()">Buy Now</button>
+            </div>
+        </div>
+    </header>
+        <div class="container" id="container">
+        <!-- home page start -->
+        <section class="banner" id="banner">
+            <!-- <img src="img/download (4).jfif" alt="" class="banner-img"> -->
+            <div class="parent">
+                <div class="child">
+                    <!-- <h1 class="banner-h1">Welcome to <br> MAS Restaurant</h1> -->
+                    <p class="banner-p" style="text-align: start;">Reserve your table at MAS Restaurant and enjoy a delightful dining experience. Simply fill out the form with your details, including the date, time, and number of guests. We look forward to serving you!</p>
+                    <!-- <a href="menu.html">Explore</a> -->
+                </div>
+                <div class="child">
+                    <img src="img/table.jfif" alt="Error">
+                </div>
+            </div>
+        </section>
+        <!-- home page end -->
+
+        <!-- chatbot page start -->
+
+        <div class="chatbot-icon" id="chatbotIcon">
+            💬
+        </div>
+    
+        <div class="chatbot-container" id="chatbotContainer">
+            <div class="chatbot-header">
+                <h3>MAS Restaurant</h3>
+                <span class="close-btn" id="closeBtn">✖</span>
+            </div>
+            <div class="chatbot-messages" id="chatbotMessages">
+                <div class="bot-message">Hello! How can I assist you today?</div>
+            </div>
+            <div class="chatbot-footer">
+                <input type="text" id="userInput" placeholder="Type your prompt...">
+                <button id="sendBtn">Send</button>
+            </div>
+        </div>
+        <!-- chatbot page end -->
+
+       <!-- contact page start  -->
+        <section class="contact">
+            <div class="parent">
+                <h1>Book Table</h1>
+                <div class="child">
+                    <h2>Our Location</h2>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3437.938849376788!2d78.71057177442725!3d12.935523915669561!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bad75007f7e1f13%3A0xfa805ed3575a5af5!2sMAS%20infotech%20Abubakkar%20house!5e1!3m2!1sen!2sin!4v1727088336502!5m2!1sen!2sin"
+                        width="100%" height="100%" style="border:0; border-radius: 10px;" allowfullscreen=""
+                        loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="child">
+                    <h2>Book Your Table</h2>
+                    <div class="form">
+                        <form action="">
+                            <input type="text" name="name" placeholder="Enter your name" required> <br>
+                            <input type="number" name="number" placeholder="Enter your number" required> <br>
+                            <input type="email" name="email" placeholder="Enter your email" required> <br>
+                            <input type="text" name="name" placeholder="Enter table for Family (or) Friends" required> <br>
+                            <input type="number" name="name" placeholder="Enter How many tables & seat you want" required> <br>
+                            <textarea name="message" id="message" cols="20" rows="10" required></textarea> <br>
+                            <button onclick="Submit()">Submit</button>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- contact page end -->
+
+        <!-- cheff page start  -->
+        <section class="cheff">
+            <div class="parent">
+                <h1>Meet Our Chef</h1>
+                <div class="child">
+                    <div class="menu-img">
+                        <img src="img/chef-1.png" alt="">
+                    </div>
+                    <div class="menu-content">
+                        <h2>Master</h2>
+                        <p>Gordon Ramsay</p>
+                        <div class="icons">
+                            <i class="fa-brands fa-instagram"></i>
+                            <i class="fa-brands fa-square-facebook"></i>
+                            <i class="fa-brands fa-square-twitter"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="child">
+                    <div class="menu-img">
+                        <img src="img/chef-2.png" alt="" id="item-img">
+                    </div>
+                    <div class="menu-content">
+                        <h2 id="item-name">Master</h2>
+                        <p>Clare Smyth</p>
+                        <div class="icons">
+                            <i class="fa-brands fa-instagram"></i>
+                            <i class="fa-brands fa-square-facebook"></i>
+                            <i class="fa-brands fa-square-twitter"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="child">
+                    <div class="menu-img">
+                        <img src="img/chef-3.png" alt="" id="item-img">
+                    </div>
+                    <div class="menu-content">
+                        <h2 id="item-name">Master</h2>
+                        <p>Jamie Oliver</p>
+                        <div class="icons">
+                            <i class="fa-brands fa-instagram"></i>
+                            <i class="fa-brands fa-square-facebook"></i>
+                            <i class="fa-brands fa-square-twitter"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="child">
+                    <div class="menu-img">
+                        <img src="img/chef-4.png" alt="" id="item-img">
+                    </div>
+                    <div class="menu-content">
+                        <h2 id="item-name">Master</h2>
+                        <p>Massimo Bottura</p>
+                        <div class="icons">
+                            <i class="fa-brands fa-instagram"></i>
+                            <i class="fa-brands fa-square-facebook"></i>
+                            <i class="fa-brands fa-square-twitter"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- cheff page end -->
+
+         <!-- footer page start -->
+        <footer>
+            <div class="footer-content">
+                <div class="child">
+                    <h2>Quick Links</h2>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="service.html">Service</a></li>
+                    </ul>
+                </div>
+                <div class="child">
+                    <h2>Product</h2>
+                    <ul>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="table.html">Book Table</a></li>
+                        <li><a href="menu.html">Explore</a></li>
+                        <li><a href="menu.html">Fast Food</a></li>
+                    </ul>
+                </div>
+                <div class="child">
+                    <h2>About us</h2>
+                    <ul>
+                        <li><a href="term.html">Terms & Condition</a></li>
+                        <li><a href="https://abubakkar1.netlify.app/">Meet Founder</a></li>
+                        <li><a href="contact.html">Queries</a></li>
+                        <li><a href="about.html">Our Startup</a></li>
+                    </ul>
+                </div>
+                <div class="footer-content last">
+                    <p> &copy; 2024 all reserved, Developed by <a href="https://abubakkar1.netlify.app/">Abubakkar</a>
+                    </p>
+                </div>
+        </footer>
+        <!-- footer page end -->
+    </div>
+<script src="script.js"></script>
+    <script src="gsap.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+</body>
+</html>

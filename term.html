@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Terms and Conditions - MAS Restaurant</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .navbar {
+            background-color: #333;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar .logo {
+            color: #fff;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+
+        .navbar .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .navbar .nav-links li {
+            margin-left: 1rem;
+        }
+
+        .navbar .nav-links li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+        }
+
+        .navbar .nav-links li a.active {
+            background-color: #ff6600;
+            border-radius: 5px;
+        }
+
+        .terms-section {
+            padding: 2rem;
+            background-color: #fff;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 1rem;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .container h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .container h2 {
+            font-size: 1.25rem;
+            margin-top: 1.5rem;
+        }
+
+        .container p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            color: #666;
+        }
+
+        button#acceptBtn {
+            background-color: #ff6600;
+            color: #fff;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button#acceptBtn:hover {
+            background-color: #e65c00;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            /* background-color: #333; */
+            color: #fff;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar .nav-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .navbar .nav-links li {
+                margin: 0.5rem 0;
+            }
+
+            .container {
+                padding: 1rem;
+                max-width: 95%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <span><img src="img/MAS.gif" alt=""></span>
+            </div>
+            <ul id="nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="service.html">Service</a></li>
+                <li><a href="table.html">Book Table</a></li>
+                <li id="Icon"><a onclick="Search()"><i class="fa-solid fa-magnifying-glass"
+                            style="font-size: 25px;"></i></a></li>
+                <li id="Icon"><a onclick="addTocart()"><img src="img/cart.svg" alt="" class="cart-icon"></a></li>
+                <button onclick="Hamburger()" id="hamburger"><img src="img/ham.svg" alt=""></button>
+            </ul>
+            <ul id="nav-ham">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="service.html">Service</a></li>
+                <li><a href="table.html">Book Table</a></li>
+                <li id="Icon"><a onclick="Search()"><i class="fa-solid fa-magnifying-glass"
+                            style="font-size: 25px;"></i></a></li>
+                <li id="Icon"><a onclick="addTocart()"><img src="img/cart.svg" alt="" class="cart-icon"></a></li>
+            </ul>
+            <form action="#" id="form" style="display: none;">
+                <input type="search" id="product" placeholder="Search your meal" required>
+                <button type="button" onclick="searchProduct()">Search</button>
+            </form>
+        </nav>
+        <!-- Cart Box -->
+        <div class="cart-main">
+
+            <div class="cart-box" id="cart-box">
+                <h3>Shopping Cart</h3>
+                <div id="cart-items"></div>
+                <div id="cart-total" style="font-weight: bold; margin-top: 10px;"></div>
+                <button onclick="buyNow()">Buy Now</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="terms-section">
+        <div class="container">
+            <h1>Terms and Conditions</h1>
+            <p>Welcome to MAS Restaurant!</p>
+            <p>By accessing and using this website, you agree to be bound by the following terms and conditions:</p>
+
+            <h2>1. General</h2>
+            <p>All services provided by MAS Restaurant are subject to these terms and conditions.</p>
+
+            <h2>2. Privacy Policy</h2>
+            <p>Your personal information will be handled in accordance with our privacy policy.</p>
+
+            <h2>3. Orders & Payments</h2>
+            <p>All orders placed through our website must be paid in full before they are processed.</p>
+
+            <h2>4. Liability</h2>
+            <p>MAS Restaurant is not responsible for any damages or losses arising from the use of our website.</p>
+
+            <h2>5. Changes to Terms</h2>
+            <p>MAS Restaurant reserves the right to modify these terms at any time without notice.</p>
+
+            <h2>6. Contact Us</h2>
+            <p>If you have any questions, please contact us at <a
+                    href="mailto:info@masrestaurant.com">info@masrestaurant.com</a>.</p>
+
+            <button id="acceptBtn">Accept Terms</button>
+        </div>
+        <footer>
+            <p>&copy; 2024 MAS Restaurant. All rights reserved.</p>
+        </footer>
+    </section>
+
+
+    <script>
+        document.getElementById("acceptBtn").addEventListener("click", function () {
+            alert("Thank you for accepting the terms and conditions!");
+        });
+
+    </script>
+</body>
+
+</html>
